@@ -21,6 +21,5 @@ export abstract class Plugin {
    * @param toolName - The name of the tool to call
    * @param args - The arguments to pass to the tool
    */
-  abstract toolCall(toolName: string, ...args: Array<any>): Promise<string> | string
+  abstract toolCall(toolName: string, args: Record<string, any>): Promise<string> | string
 }
-
