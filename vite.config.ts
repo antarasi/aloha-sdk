@@ -4,11 +4,14 @@ import dts from 'vite-plugin-dts'
 export default defineConfig({
   build: {
     lib: {
-      entry: ['src/main.ts'],
+      entry: {
+        main: 'src/main.ts',
+        cli: 'src/cli.ts'
+      },
       formats: ['es']
     },
     rollupOptions: {
-      external: [],
+      external: ['fs', 'path'],
       output: {
         globals: {}
       }

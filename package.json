@@ -8,7 +8,13 @@
     ".": {
       "import": "./dist/main.js",
       "types": "./dist/main.d.ts"
+    },
+    "./cli": {
+      "import": "./dist/cli.js"
     }
+  },
+  "bin": {
+    "aloha": "./dist/cli.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +24,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc && vite build"
+    "build": "tsc && vite build && chmod +x dist/cli.js",
+    "test:cli": "node cli.js version package.json test-manifest.json && cat test-manifest.json && rm test-manifest.json"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
