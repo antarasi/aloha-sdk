@@ -10,7 +10,7 @@ You can use it on a plugin `prebuild` script to update the plugin version on eve
 ```json
 {
   "scripts": {
-    "prebuild": "aloha version package.json public/manifest.json"
+    "prebuild": "aloha version package.json manifest.json"
   }
 }
 ```
