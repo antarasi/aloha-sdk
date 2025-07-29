@@ -25,7 +25,8 @@
   ],
   "scripts": {
     "build": "tsc && vite build && chmod +x dist/cli.js",
-    "test:cli": "node cli.js version package.json test-manifest.json && cat test-manifest.json && rm test-manifest.json"
+    "test:cli": "node cli.js version package.json test-manifest.json && cat test-manifest.json && rm test-manifest.json",
+    "test": "test -d dist && test -f dist/main.js && test -f dist/main.d.ts && test -f dist/cli.js"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
