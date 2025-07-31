@@ -28,7 +28,7 @@ export default class SayHelloPlugin extends Plugin {
     super(context) // the plugin context allows the plugin to interact with the agent
   }
 
-  async toolCall(toolName: string, args: any) {
+  async toolCall(toolName, args) {
     if (toolName !== 'sayHello') {
       throw new Error(`This tool is not available in **Concierge Plugin**`)
     }
