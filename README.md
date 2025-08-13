@@ -2,6 +2,7 @@
 Aloha Desktop SDK for plugin development
 
 [![npm version](https://img.shields.io/npm/v/aloha-sdk)](https://npmjs.com/package/aloha-sdk)
+[![github action](https://github.com/antarasi/aloha-sdk/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/antarasi/aloha-sdk/actions/workflows/npm-publish.yml)
 
 ## Complete Plugin Example (simplified - no bundler)
 
