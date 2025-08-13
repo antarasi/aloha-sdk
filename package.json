@@ -2,7 +2,7 @@
   "name": "aloha-sdk",
   "private": false,
   "author": "AntaraSI",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "type": "module",
   "exports": {
     ".": {
