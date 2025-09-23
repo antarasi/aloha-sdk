@@ -105,8 +105,21 @@ To get started quickly use the official [vite-aloha template](https://github.com
 
 ## Plugin Requirements
 
-1. Max icon size 25kB
-2. See [Publishing Requirements](https://github.com/antarasi/aloha-releases?tab=readme-ov-file#publishing-requirements)
+1. Max icon size 10kB
+2. Supported icon formats:
+```
+  image/svg+xml
+  image/png
+  image/jpeg
+  image/jpg
+  image/gif
+  image/webp
+  image/ico
+  image/x-icon
+  image/bmp
+  image/tiff
+```
+3. See [Publishing Requirements](https://github.com/antarasi/aloha-releases?tab=readme-ov-file#publishing-requirements)
 
 ## CLI Usage
 
