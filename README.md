@@ -103,6 +103,11 @@ To bundle dependencies with your plugin we recommend using a bundler.
 
 To get started quickly use the official [vite-aloha template](https://github.com/antarasi/vite-aloha)
 
+## Plugin Requirements
+
+1. Max icon size 25kB
+2. See [Publishing Requirements](https://github.com/antarasi/aloha-releases?tab=readme-ov-file#publishing-requirements)
+
 ## CLI Usage
 
 The aloha-sdk package includes a CLI tool for automatic version management. After installing aloha-sdk as a dev dependency, you can use the CLI to copy the version from your package.json to a manifest file.
