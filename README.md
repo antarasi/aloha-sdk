@@ -119,7 +119,8 @@ To get started quickly use the official [vite-aloha template](https://github.com
   image/bmp
   image/tiff
 ```
-3. See [Publishing Requirements](https://github.com/antarasi/aloha-releases?tab=readme-ov-file#publishing-requirements)
+3. Use only monochrome icon (#171717) with transparent background, preferably svg, colors will be inverted automatically for dark mode
+4. See [Publishing Requirements](https://github.com/antarasi/aloha-releases?tab=readme-ov-file#publishing-requirements)
 
 ## CLI Usage
 
