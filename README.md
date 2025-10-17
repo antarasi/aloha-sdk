@@ -15,16 +15,14 @@ your-plugin/
 ├── public/
 │   └── icon.svg                  # Plugin icon
 ├── tests/
-│   └── validate-export.test.mts  # Tests
+│   └── validate-export.test.mjs  # Tests
 └── manifest.json                 # Plugin manifest file
 ```
 
 ### 1. Write Plugin Code 
 
-```typescript
-import { Plugin } from 'aloha-sdk'
-
-export default class SayHelloPlugin extends Plugin {
+```js
+export default class SayHelloPlugin {
   constructor(context) {
     super(context) // the plugin context allows the plugin to interact with the agent
   }
