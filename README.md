@@ -10,7 +10,7 @@ To bundle dependencies with your plugin we recommend using a bundler.
 
 To get started quickly use the official [vite-aloha template](https://github.com/antarasi/vite-aloha)
 
-If you don't need to include dependencies from the NPM registry, you can use a simplified approach with just a .
+If you don't need to include dependencies from the NPM registry, you can use a simplified approach with just a single file as entry point.
 
 ## Complete Plugin Example (simplified - no bundler)
 
