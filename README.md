@@ -4,6 +4,14 @@ Aloha Desktop SDK for plugin development
 [![npm version](https://img.shields.io/npm/v/aloha-sdk)](https://npmjs.com/package/aloha-sdk)
 [![github action](https://github.com/antarasi/aloha-sdk/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/antarasi/aloha-sdk/actions/workflows/npm-publish.yml)
 
+## Plugins with dependencies
+
+To bundle dependencies with your plugin we recommend using a bundler. 
+
+To get started quickly use the official [vite-aloha template](https://github.com/antarasi/vite-aloha)
+
+If you don't need to include dependencies from the NPM registry, you can use a simplified approach with just a .
+
 ## Complete Plugin Example (simplified - no bundler)
 
 ### Plugin Project Structure
@@ -94,12 +102,6 @@ plugin.tgz
 └── public/
     └── icon.svg
 ```
-
-## Plugins with dependencies
-
-To bundle dependencies with your plugin we recommend using a bundler. 
-
-To get started quickly use the official [vite-aloha template](https://github.com/antarasi/vite-aloha)
 
 ## Plugin Requirements
 
