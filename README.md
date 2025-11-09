@@ -14,6 +14,8 @@ If you don't need to include dependencies from the NPM registry, you can use a s
 
 ## Complete Plugin Example (simplified - no bundler)
 
+[![How to prototype an AI app in 15 minutes](.github/assets/yt-thumbnail-play.webp)](https://www.youtube.com/watch?v=HGJzU5n9ook)
+
 ### Plugin Project Structure
 
 ```
