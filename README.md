@@ -129,6 +129,7 @@ export abstract class Plugin {
 <!-- automd:file src="src/plugin-context.ts" code -->
 
 ```ts [plugin-context.ts]
+import type { Logger } from './logger'
 export abstract class PluginContext {
   /**
    * Render a URL in the assistant web browser and get the response content
@@ -137,6 +138,13 @@ export abstract class PluginContext {
    * @returns The rendered content (like HTML)
    */
   abstract renderUrl(url: string): Promise<string>
+
+  /** Get Aloha default logger instance 
+   *  You can use it to log messages from your plugin
+   * 
+   * @returns The logger instance
+  */
+  abstract getLogger(): Logger
 }
 ```
 
@@ -145,15 +153,28 @@ export abstract class PluginContext {
 ## SDK API Usage Example
 
 ```ts
-import { Plugin, PluginContext } from 'aloha-sdk'
+import { Plugin } from 'aloha-sdk'
+import type { Logger, PluginContext } from 'aloha-sdk'
 
 export default class MyPlugin extends Plugin {
+  private logger: Logger;
+
+  constructor(context: PluginContext) {
+    super(context);
+    this.logger = context.getLogger();
+  }
+
   async toolCall(toolName: string, args: { taskName: string }): Promise<string> {
     if (toolName === "getTaskDate") {
-        const url = `https://cool-tasks.com/${taskName}`
-        const body = await this.getContext().renderUrl(url)
+      const url = `https://cool-tasks.com/${args.taskName}`
+      const body = await this.getContext().renderUrl(url)
+      try {
         const taskDate = ... // use response body to extract date
-        return `${taskName} due date is ${taskDate}`;
+        return `${args.taskName} due date is ${taskDate}`;
+      } catch (exc: any) {
+        this.logger.error(`Failed to parse due date of task ${args.taskName}: ${body}`, exc);
+        throw new Error(`Sorry, we couldn't find the due date of '${args.taskName}' task.`)
+      }
     }
 
     throw new Error(`This tool is not available`)
