@@ -88,6 +88,80 @@ The `manifest.json` file describe the plugin capabilities to Aloha Desktop agent
 
 <img src=".github/assets/greeting-tool.png" width="800">
 
+## SDK API
+
+### `Plugin` class
+
+<!-- automd:file src="src/plugin.ts" code -->
+
+```ts [plugin.ts]
+import type { PluginContext } from "./plugin-context";
+export abstract class Plugin {
+  private readonly context: PluginContext
+
+  constructor(context: PluginContext) {
+    this.context = context
+  }
+
+  /**
+   * Get the context object to interact with the assistant
+   * 
+   * @returns The context object
+   */
+  getContext(): PluginContext {
+    return this.context
+  }
+
+  /**
+   * This method is called when the assistant calls a tool provided by the plugin in the manifest.
+   * 
+   * @param toolName - The name of the tool to call
+   * @param args - The arguments to pass to the tool
+   */
+  abstract toolCall(toolName: string, args: Record<string, any>): Promise<string> | string
+}
+```
+
+<!-- /automd -->
+
+### `PluginContext` class
+
+<!-- automd:file src="src/plugin-context.ts" code -->
+
+```ts [plugin-context.ts]
+export abstract class PluginContext {
+  /**
+   * Render a URL in the assistant web browser and get the response content
+   * 
+   * @param url - The URL to render
+   * @returns The rendered content (like HTML)
+   */
+  abstract renderUrl(url: string): Promise<string>
+}
+```
+
+<!-- /automd -->
+
+## SDK API Usage Example
+
+```ts
+import { Plugin, PluginContext } from 'aloha-sdk'
+
+export default class MyPlugin extends Plugin {
+  async toolCall(toolName: string, args: { taskName: string }): Promise<string> {
+    if (toolName === "getTaskDate") {
+        const url = `https://cool-tasks.com/${taskName}`
+        const body = await this.getContext().renderUrl(url)
+        const taskDate = ... // use response body to extract date
+        return `${taskName} due date is ${taskDate}`;
+    }
+
+    throw new Error(`This tool is not available`)
+  }
+}
+```
+
+
 ## Plugin release
 
 To make your plugin availble as community plugin to download in the Aloha Desktop App, publish a release of your plugin on GitHub and update `plugins.json` on [aloha-releases repository](https://github.com/antarasi/aloha-releases).

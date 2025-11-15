@@ -26,10 +26,13 @@
   "scripts": {
     "build": "tsc && vite build && chmod +x dist/cli.js",
     "test:cli": "node cli.js version package.json test-manifest.json && cat test-manifest.json && rm test-manifest.json",
-    "test": "test -d dist && test -f dist/main.js && test -f dist/main.d.ts && test -f dist/cli.js"
+    "test": "test -d dist && test -f dist/main.js && test -f dist/main.d.ts && test -f dist/cli.js",
+    "docs": "automd",
+    "postbuild": "npm run docs"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
+    "automd": "^0.4.2",
     "typescript": "~5.8.3",
     "vite": "^7.0.4",
     "vite-plugin-dts": "^4.5.4"
