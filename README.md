@@ -118,3 +118,8 @@ export default class MyPlugin extends Plugin {
 ## CLI Usage
 
 See: [CLI Documentation](https://docs.alohadesktop.com/cli.html)
+
+
+---
+
+[alohadesktop.com](http://alohadesktop.com/)
